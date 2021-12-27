@@ -2,8 +2,10 @@ from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
 import pickle
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/', methods=['GET', 'POST'])
