@@ -1,4 +1,6 @@
-numpy
-flask
 sklearn
+numpy
+pandas
+flask
 gunicorn
+xgboost
