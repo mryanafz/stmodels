@@ -3,3 +3,6 @@ flask
 sklearn
 gunicorn
 xgboost
+urllib3==1.25.9
+Werkzeug==1.0.1
+uwsgi
