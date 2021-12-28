@@ -5,8 +5,6 @@ import pandas as pd
 import pickle
 import sklearn
 import xgboost
-import jcopml
-from sklearn.neighbors import KNeighborsClassifier
 from platform import python_version
 
 
@@ -23,7 +21,7 @@ CORS(app)
 def index():
     if request.method == "POST":
 
-        model = pickle.load(open('model_asma.pkl', 'rb'))
+        model = pickle.load(open('model_asma_xgb.pkl', 'rb'))
         # model = load_model('model_asma.pkl')
 
         test = [{
