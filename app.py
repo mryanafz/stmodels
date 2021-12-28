@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
 import numpy as np
 import pandas as pd
-import pickle
+# import pickle
+from jcopml.utils import save_model, load_model
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -13,7 +14,8 @@ CORS(app)
 def index():
     if request.method == "POST":
 
-        model = pickle.load(open('model_asma.pkl', 'rb'))
+        # model = pickle.load(open('model_asma.pkl', 'rb'))
+        model = load_model('model_asma.pkl')
 
         test = [{
             'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
@@ -25,13 +27,13 @@ def index():
             'Jenis Kelamin': int(request.form.get('jenisKelamin')),
         }]
 
-        # predict = model.predict(pd.DataFrame(test))
-        # response = jsonify(result={
-        #     'perdict': str(predict[0]),
-        # })
+        predict = model.predict(pd.DataFrame(test))
+        response = jsonify(result={
+            'perdict': str(predict[0]),
+        })
         # response.headers.add('Access-Control-Allow-Origin', '*')
         # return response
-        return jsonify(test)
+        return jsonify(predict[0])
     elif request.method == "GET":
         return '<h1>get</h1>'
 
