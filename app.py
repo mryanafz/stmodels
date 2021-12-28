@@ -15,7 +15,7 @@ CORS(app)
 def index():
     if request.method == "POST":
 
-        # model = pickle.load(open('model_asma.pkl', 'rb'))
+        model = pickle.load(open('model_asma.pkl', 'rb'))
         # model = load_model('model_asma.pkl')
 
         test = [{
