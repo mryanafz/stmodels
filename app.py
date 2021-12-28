@@ -13,7 +13,7 @@ CORS(app)
 def index():
     if request.method == "POST":
 
-        # model = pickle.load(open('model_asma.pkl', 'rb'))
+        model = pickle.load(open('model_asma.pkl', 'rb'))
 
         test = [{
             'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
@@ -24,8 +24,6 @@ def index():
             'Usia': int(request.form.get('usia')),
             'Jenis Kelamin': int(request.form.get('jenisKelamin')),
         }]
-
-        # print(test)
 
         # predict = model.predict(pd.DataFrame(test))
         # response = jsonify(result={
