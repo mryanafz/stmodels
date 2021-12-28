@@ -12,9 +12,9 @@ CORS(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    model = pickle.load(open('model_asma.pkl', 'rb'))
     if request.method == "POST":
 
+        # model = pickle.load(open('model_asma.pkl', 'rb'))
         # model = load_model('model_asma.pkl')
 
         test = [{
@@ -27,13 +27,13 @@ def index():
             'Jenis Kelamin': int(request.form.get('jenisKelamin')),
         }]
 
-        predict = model.predict(pd.DataFrame(test))
+        # predict = model.predict(pd.DataFrame(test))
         # response = jsonify(result={
         #     'perdict': str(predict[0]),
         # })
         # response.headers.add('Access-Control-Allow-Origin', '*')
         # return response
-        return jsonify(predict[0])
+        return jsonify(test)
     elif request.method == "GET":
         return '<h1>get</h1>'
 
