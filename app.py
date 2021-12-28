@@ -13,26 +13,29 @@ CORS(app)
 def index():
     if request.method == "POST":
 
-        model = pickle.load(open('model_asma.pkl', 'rb'))
+        # model = pickle.load(open('model_asma.pkl', 'rb'))
 
-        test = [{
-            'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
-            'Asma Kambuh': int(request.form.get('asmaKambuh')),
-            'Gejala Malam Hari': int(request.form.get('gejalaMalamHari')),
-            'Sesak Napas Lambuh': int(request.form.get('sesakNafasLambuh')),
-            'Tingkat Kontrol Asma': int(request.form.get('tingkatKontrolAsma')),
-            'Usia': int(request.form.get('usia')),
-            'Jenis Kelamin': int(request.form.get('jenisKelamin')),
-        }]
+        # test = [{
+        #     'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
+        #     'Asma Kambuh': int(request.form.get('asmaKambuh')),
+        #     'Gejala Malam Hari': int(request.form.get('gejalaMalamHari')),
+        #     'Sesak Napas Lambuh': int(request.form.get('sesakNafasLambuh')),
+        #     'Tingkat Kontrol Asma': int(request.form.get('tingkatKontrolAsma')),
+        #     'Usia': int(request.form.get('usia')),
+        #     'Jenis Kelamin': int(request.form.get('jenisKelamin')),
+        # }]
 
-        print(test)
+        # print(test)
 
-        predict = model.predict(pd.DataFrame(test))
-        response = jsonify(result={
-            'perdict': str(predict[0]),
-        })
-        response.headers.add('Access-Control-Allow-Origin', '*')
-        return response
+        # predict = model.predict(pd.DataFrame(test))
+        # response = jsonify(result={
+        #     'perdict': str(predict[0]),
+        # })
+        # response.headers.add('Access-Control-Allow-Origin', '*')
+        # return response
+        return '<h1>post</h1>'
+    elif request.method == "GET":
+        return '<h1>get</h1>'
 
 
 if __name__ == '__main__':
