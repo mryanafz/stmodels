@@ -7,6 +7,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True
+app.config['DEBUG'] = True
 CORS(app)
 
 
@@ -26,6 +27,8 @@ def index():
             'Usia': int(request.form.get('usia')),
             'Jenis Kelamin': int(request.form.get('jenisKelamin')),
         }]
+
+        print(test)
 
         # predict = model.predict(pd.DataFrame(test))
         # response = jsonify(result={
