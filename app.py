@@ -5,6 +5,7 @@ import pickle
 from flask_cors import CORS
 
 app = Flask(__name__)
+app.config['PROPAGATE_EXCEPTIONS'] = True
 CORS(app)
 
 
@@ -27,7 +28,7 @@ def index():
         print(test)
 
         predict = model.predict(pd.DataFrame(test))
-        response = jsonify({
+        response = jsonify(result={
             'perdict': str(predict[0]),
         })
         response.headers.add('Access-Control-Allow-Origin', '*')
