@@ -15,15 +15,15 @@ def index():
 
         # model = pickle.load(open('model_asma.pkl', 'rb'))
 
-        # test = [{
-        #     'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
-        #     'Asma Kambuh': int(request.form.get('asmaKambuh')),
-        #     'Gejala Malam Hari': int(request.form.get('gejalaMalamHari')),
-        #     'Sesak Napas Lambuh': int(request.form.get('sesakNafasLambuh')),
-        #     'Tingkat Kontrol Asma': int(request.form.get('tingkatKontrolAsma')),
-        #     'Usia': int(request.form.get('usia')),
-        #     'Jenis Kelamin': int(request.form.get('jenisKelamin')),
-        # }]
+        test = [{
+            'Penanganan Pernapasan': int(request.form.get('penangananPernapasan')),
+            'Asma Kambuh': int(request.form.get('asmaKambuh')),
+            'Gejala Malam Hari': int(request.form.get('gejalaMalamHari')),
+            'Sesak Napas Lambuh': int(request.form.get('sesakNafasLambuh')),
+            'Tingkat Kontrol Asma': int(request.form.get('tingkatKontrolAsma')),
+            'Usia': int(request.form.get('usia')),
+            'Jenis Kelamin': int(request.form.get('jenisKelamin')),
+        }]
 
         # print(test)
 
@@ -33,7 +33,7 @@ def index():
         # })
         # response.headers.add('Access-Control-Allow-Origin', '*')
         # return response
-        return '<h1>post</h1>'
+        return jsonify(test)
     elif request.method == "GET":
         return '<h1>get</h1>'
 
