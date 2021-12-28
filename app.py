@@ -7,6 +7,9 @@ import sklearn
 import xgboost
 import jcopml
 from sklearn.neighbors import KNeighborsClassifier
+from platform import python_version
+
+
 # from jcopml.utils import save_model, load_model
 from flask_cors import CORS
 
@@ -43,7 +46,7 @@ def index():
         # return response
         return jsonify(test)
     elif request.method == "GET":
-        return f"flask : {flask.__version__}\n numpy : {np.__version__}\n pandas : {pd.__version__}\n sklearn : {sklearn.__version__}\n xgboost : {xgboost.__version__}\n jcopml : {jcopml.__version__}\n"
+        return f"flask : {flask.__version__}\n numpy : {np.__version__}\n pandas : {pd.__version__}\n sklearn : {sklearn.__version__}\n xgboost : {xgboost.__version__}\n jcopml : {jcopml.__version__}\n python : {python_version()}\n"
 
 
 if __name__ == '__main__':
