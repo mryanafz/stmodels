@@ -57,7 +57,7 @@ def vaksin():
         return jsonify(predict[0])
 
     elif request.method == "GET":
-        return jsonify('Get vaksin')
+        return jsonify('Get vaksin tweet')
 
 
 if __name__ == '__main__':
