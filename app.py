@@ -44,7 +44,20 @@ def index():
         # return response
         return jsonify(predict[0])
     elif request.method == "GET":
-        return f"flask : {flask.__version__}\n numpy : {np.__version__}\n pandas : {pd.__version__}\n sklearn : {sklearn.__version__}\n xgboost : {xgboost.__version__}\n jcopml : {jcopml.__version__}\n python : {python_version()}\n"
+        return f"flask : {flask.__version__}\n numpy : {np.__version__}\n pandas : {pd.__version__}\n sklearn : {sklearn.__version__}\n xgboost : {xgboost.__version__}\n python : {python_version()}\n"
+
+
+@app.route('/vaksin/', methods=['GET', 'POST'])
+def vaksin():
+    if request.method == "POST":
+        model = pickle.load(open('model_vaksin_lr.pkl', 'rb'))
+        test = [request.form.get('tweet')]
+        predict = model.predict(test)
+
+        return jsonify(predict[0])
+
+    elif request.method == "GET":
+        return jsonify('get vaksin')
 
 
 if __name__ == '__main__':

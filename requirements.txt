@@ -6,3 +6,4 @@ Flask-Cors==3.0.7
 gunicorn==20.1.0
 xgboost==0.80
 jcopml==1.1.7
+nltk==3.4.1
