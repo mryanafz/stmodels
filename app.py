@@ -53,8 +53,16 @@ def vaksin():
         model = pickle.load(open('model_vaksin_lr.pkl', 'rb'))
         test = [request.form.get('tweet')]
         predict = model.predict(test)
+        proba = model.predict_proba(test)
 
-        return jsonify(predict[0])
+        result = {
+            'perdict': str(predict[0]),
+            'proba': list(proba[0])
+        }
+
+        return jsonify(result)
+
+        # return jsonify(predict[0])
 
     elif request.method == "GET":
         return jsonify('Get vaksin tweet')
